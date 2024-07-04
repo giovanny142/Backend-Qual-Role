@@ -1,4 +1,11 @@
 package com.qual_role.dtos;
 
-public record AddressRecordDto(String district, String streetName, String zipCode, String city, String state ) {
+import jakarta.validation.constraints.NotNull;
+
+public record AddressRecordDto(
+        @NotNull String district,
+        @NotNull String streetName,
+        @NotNull String zipCode,
+        @NotNull String city,
+        @NotNull String state ) {
 }

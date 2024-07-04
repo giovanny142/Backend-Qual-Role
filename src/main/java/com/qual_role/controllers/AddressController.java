@@ -3,6 +3,7 @@ package com.qual_role.controllers;
 import com.qual_role.dtos.AddressRecordDto;
 import com.qual_role.models.AddressModel;
 import com.qual_role.services.AddressService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.UUID;
 
 @RestController
+@RequestMapping("/address")
 public class AddressController {
 
     private final AddressService addressService;
@@ -18,24 +20,24 @@ public class AddressController {
         this.addressService = addressService;
     }
 
-    @PostMapping("/address")
-    public ResponseEntity<AddressModel> createAddress(@RequestBody AddressRecordDto addressRecordDto) {
+    @PostMapping
+    public ResponseEntity<AddressModel> createAddress(@Valid @RequestBody AddressRecordDto addressRecordDto) {
         return ResponseEntity.status(HttpStatus.CREATED).body(addressService.createAddress(addressRecordDto));
     }
 
-    @GetMapping("/address/{addressId}")
+    @GetMapping("/{addressId}")
     public ResponseEntity<AddressModel> getAddressById(@PathVariable(value = "addressId") UUID addressId) {
         return ResponseEntity.status(HttpStatus.OK).body(addressService.getAddressById(addressId));
     }
 
-    @DeleteMapping("/address/{addressId}")
+    @DeleteMapping("/{addressId}")
     public ResponseEntity<String> deleteAddress(@PathVariable(value = "addressId") UUID addressId) {
         return ResponseEntity.status(HttpStatus.OK).body(addressService.deleteAddress(addressId));
     }
 
-    @PutMapping("/address/{addressId}")
+    @PutMapping("/{addressId}")
     public ResponseEntity<AddressModel> updateAddress(@PathVariable(value = "addressId") UUID addressId,
-                                                      @RequestBody AddressRecordDto addressRecordDto) {
+                                                      @Valid @RequestBody AddressRecordDto addressRecordDto) {
 
         return ResponseEntity.status(HttpStatus.OK).body(addressService.updateAddress(addressId, addressRecordDto));
     }

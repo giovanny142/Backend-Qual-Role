@@ -20,7 +20,6 @@ public class AddressService {
         this.addressRepository = addressRepository;
     }
 
-    @Transactional
     public AddressModel createAddress(AddressRecordDto addressRecordDto) {
         try {
             AddressModel address = new AddressModel();
@@ -39,7 +38,6 @@ public class AddressService {
         return addressRepository.findById(addressId).orElseThrow(() -> new NoSuchElementException("Address not found"));
     }
 
-    @Transactional
     public String deleteAddress(UUID addressId) {
         var address = addressRepository.findById(addressId);
 
@@ -51,7 +49,6 @@ public class AddressService {
         return "address successfully deleted";
     }
 
-    @Transactional
     public AddressModel updateAddress(UUID addressId, AddressRecordDto addressRecordDto) {
         var addressFound = addressRepository.findById(addressId);
 
