@@ -6,12 +6,14 @@ import com.qual_role.services.AddressService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
 
 @RestController
 @RequestMapping("/address")
+@Validated
 public class AddressController {
 
     private final AddressService addressService;

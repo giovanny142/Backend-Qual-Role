@@ -4,6 +4,7 @@ import com.qual_role.enums.CategoryEnum;
 import com.qual_role.enums.OperatingDaysEnum;
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -55,10 +56,10 @@ public class CompanyModel {
     private List<String> companyImages;
 
     @Column()
-    private Date startOpeningHour;
+    private LocalDate startOpeningHour;
 
     @Column()
-    private Date endOpeningHour;
+    private LocalDate endOpeningHour;
 
     @Enumerated(EnumType.STRING)
     @Column()
@@ -68,10 +69,10 @@ public class CompanyModel {
     private Boolean isOpen;
 
     @Column()
-    private Date createdAt;
+    private LocalDate createdAt;
 
     @Column()
-    private Date updatedAt;
+    private LocalDate updatedAt;
 
     public UUID getId() {
         return id;
@@ -161,19 +162,19 @@ public class CompanyModel {
         this.companyImages = companyImages;
     }
 
-    public Date getStartOpeningHour() {
+    public LocalDate getStartOpeningHour() {
         return startOpeningHour;
     }
 
-    public void setStartOpeningHour(Date startOpeningHour) {
+    public void setStartOpeningHour(LocalDate startOpeningHour) {
         this.startOpeningHour = startOpeningHour;
     }
 
-    public Date getEndOpeningHour() {
+    public LocalDate getEndOpeningHour() {
         return endOpeningHour;
     }
 
-    public void setEndOpeningHour(Date endOpeningHour) {
+    public void setEndOpeningHour(LocalDate endOpeningHour) {
         this.endOpeningHour = endOpeningHour;
     }
 
@@ -193,19 +194,19 @@ public class CompanyModel {
         isOpen = open;
     }
 
-    public Date getCreatedAt() {
+    public LocalDate getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Date createdAt) {
+    public void setCreatedAt(LocalDate createdAt) {
         this.createdAt = createdAt;
     }
 
-    public Date getUpdatedAt() {
+    public LocalDate getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(Date updatedAt) {
+    public void setUpdatedAt(LocalDate updatedAt) {
         this.updatedAt = updatedAt;
     }
 
